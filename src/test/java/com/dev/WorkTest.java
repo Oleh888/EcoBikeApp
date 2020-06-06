@@ -11,17 +11,19 @@ package com.dev;
 //import org.junit.Before;
 //import org.junit.Test;
 import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import org.junit.Before;
 
 public class WorkTest {
     private final ByteArrayOutputStream output = new ByteArrayOutputStream();
     private static final String FILE_TEST1 = "test1.txt";
     private static final String FILE_TEST2 = "test2.txt";
     private static final String FILE_TEST3 = "test3.txt";
-//
-//    @Before
-//    public void setUpStreams() {
-//        System.setOut(new PrintStream(output));
-//    }
+
+    @Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(output));
+    }
 //
 //    @After
 //    public void cleanUpStreams() {
