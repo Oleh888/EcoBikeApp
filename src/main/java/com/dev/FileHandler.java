@@ -3,21 +3,27 @@ package com.dev;
 import com.dev.model.ElectricBike;
 import com.dev.model.FoldingBike;
 import com.dev.model.SpeedElectricBike;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class FileHandler {
-    public static void readFromFile(String path) throws IOException {
-        Path file = Paths.get(path);
-        List<String> lines = Files.readAllLines(file);
-        for (String line : lines) {
-            createBike(line);
+    public static void readFromFile(String path) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            List<String> lines = Files.readAllLines(Paths.get(path));
+            for (String line : lines) {
+                createBike(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Something is wrong, please try again.");
         }
     }
 
@@ -63,9 +69,25 @@ public class FileHandler {
         }
     }
 
-    public static void addBike(String line) throws IOException {
+    public static void addBike(String line, String path) {
         createBike(line);
-        Path filePath = Paths.get("ecobike.txt");
-        Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            Files.write(Paths.get(path), line.getBytes(), StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            System.out.println("Something is wrong, please try again.");
+        }
+    }
+
+    public static String getPath() {
+        System.out.println("Provide directory to your file");
+        String path = new Scanner(System.in).nextLine();
+        File file = new File(path);
+        if (!file.isFile()) {
+            System.out.println("There is not such file,"
+                    + " please check if file exist and repeat please.");
+            getPath();
+        }
+        FileHandler.readFromFile(path);
+        return path;
     }
 }
