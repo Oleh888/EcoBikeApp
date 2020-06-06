@@ -10,12 +10,13 @@ package com.dev;
 //import org.junit.Assert;
 //import org.junit.Before;
 //import org.junit.Test;
+import java.io.ByteArrayOutputStream;
 
 public class WorkTest {
-//    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
-//    private static final String FILE_TEST1 = "test1.txt";
-//    private static final String FILE_TEST2 = "test2.txt";
-//    private static final String FILE_TEST3 = "test3.txt";
+    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+    private static final String FILE_TEST1 = "test1.txt";
+    private static final String FILE_TEST2 = "test2.txt";
+    private static final String FILE_TEST3 = "test3.txt";
 //
 //    @Before
 //    public void setUpStreams() {
