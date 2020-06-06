@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class WorkTest {
-    private ByteArrayOutputStream output = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
     private static final String FILE_TEST1 = "test1.txt";
     private static final String FILE_TEST2 = "test2.txt";
     private static final String FILE_TEST3 = "test3.txt";
@@ -96,6 +96,7 @@ public class WorkTest {
             EcoBike ecoBike = (EcoBike) bike;
             if (ecoBike.getBrand().equalsIgnoreCase(brand)) {
                 status = true;
+                break;
             }
         }
         Assert.assertTrue(status);
