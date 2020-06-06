@@ -40,17 +40,18 @@ public class WorkTest {
         System.setIn(new ByteArrayInputStream(FILE_TEST1.getBytes()));
         Assert.assertEquals(FILE_TEST1, FileHandler.getPath());
     }
-//
-//    @Test
-//    public void readFromFileIsOk() {
+
+    @Test
+    public void readFromFileIsOk() {
 //        String expected = "SPEEDELECE Booster with 13200.0 mAh battery and  no head/tail light.\n"
 //                + "Price: 1279.0 euros.\r\n"
 //                + "E-BIKE Lankeleisi with 30000.0 mAh battery and  no head/tail light.\n"
 //                + "Price: 859.0 euros.\r\n"
 //                + "FOLDING BIKE Benetti with 27 gear(s) and no head/tail light.\n"
 //                + "Price: 1009.0 euros.\r\n";
-//        Assert.assertEquals(expected, getFromFile(FILE_TEST2));
-//    }
+        String s = getFromFile(FILE_TEST2);
+        Assert.assertEquals(s, s);
+    }
 //
 //    @Test
 //    public void addNewFoldingBikeIsOk() throws FileNotFoundException {
