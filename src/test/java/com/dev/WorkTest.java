@@ -12,6 +12,7 @@ package com.dev;
 //import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import org.junit.After;
 import org.junit.Before;
 
 public class WorkTest {
@@ -24,12 +25,12 @@ public class WorkTest {
     public void setUpStreams() {
         System.setOut(new PrintStream(output));
     }
-//
-//    @After
-//    public void cleanUpStreams() {
-//        System.setOut(null);
-//        Storage.getBikes().clear();
-//    }
+
+    @After
+    public void cleanUpStreams() {
+        System.setOut(null);
+        Storage.getBikes().clear();
+    }
 //
 //    @Test
 //    public void getPathIsOk() {
