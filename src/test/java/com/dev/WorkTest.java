@@ -49,7 +49,12 @@ public class WorkTest {
                 + "Price: 859.0 euros.\r\n"
                 + "FOLDING BIKE Benetti with 27 gear(s) and no head/tail light.\n"
                 + "Price: 1009.0 euros.\r\n";
-        Assert.assertEquals(expected, getFromFile(FILE_TEST2));
+        FileHandler.readFromFile(FILE_TEST2);
+        System.setIn(new ByteArrayInputStream("1".getBytes()));
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        ConsoleHandler.makeChoice(FILE_TEST2);
+        Assert.assertEquals(expected, output.toString());
     }
 //
 //    @Test
@@ -109,12 +114,4 @@ public class WorkTest {
 //        Assert.assertTrue(status);
 //    }
 //
-    private String getFromFile(String path) {
-        FileHandler.readFromFile(path);
-        System.setIn(new ByteArrayInputStream("1".getBytes()));
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-        ConsoleHandler.makeChoice(path);
-        return output.toString();
-    }
 }
