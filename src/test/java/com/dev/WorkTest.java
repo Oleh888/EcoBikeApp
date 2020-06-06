@@ -10,10 +10,13 @@ package com.dev;
 //import org.junit.Assert;
 //import org.junit.Before;
 //import org.junit.Test;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 public class WorkTest {
     private final ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -31,12 +34,12 @@ public class WorkTest {
         System.setOut(null);
         Storage.getBikes().clear();
     }
-//
-//    @Test
-//    public void getPathIsOk() {
-//        System.setIn(new ByteArrayInputStream(FILE_TEST1.getBytes()));
-//        Assert.assertEquals(FILE_TEST1, FileHandler.getPath());
-//    }
+
+    @Test
+    public void getPathIsOk() {
+        System.setIn(new ByteArrayInputStream(FILE_TEST1.getBytes()));
+        Assert.assertEquals(FILE_TEST1, FileHandler.getPath());
+    }
 //
 //    @Test
 //    public void readFromFileIsOk() {
