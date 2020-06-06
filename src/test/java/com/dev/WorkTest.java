@@ -50,7 +50,7 @@ public class WorkTest {
                 + "FOLDING BIKE Benetti with 27 gear(s) and no head/tail light.\n"
                 + "Price: 1009.0 euros.\r\n";
         String s = getFromFile(FILE_TEST2);
-        Assert.assertEquals(s, s);
+        Assert.assertEquals(expected, s);
     }
 //
 //    @Test
