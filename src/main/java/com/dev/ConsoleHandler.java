@@ -11,51 +11,47 @@ public class ConsoleHandler {
                 Storage.getBikes().forEach(System.out::println);
                 break;
             case "2":
-                String foldingBikeFormatInput = "\nbrand; size of the wheels (in inch); "
-                        + "number of gears; " + "weight of the bike (in grams)"
-                        + "; \navailability of lights at front and back (TRUE/FALSE); color; price"
-                        + "Example: \nFormula; 16; 21; 12200; true; flame; 269";
                 System.out.println("Please provide info about folding bike in format: "
-                        + foldingBikeFormatInput);
+                        + "\nbrand; size of the wheels (in inch); "
+                                + "number of gears; weight of the bike (in grams); \navailability"
+                                + " of lights at front and back (TRUE/FALSE); color; price"
+                                + "Example: \nFormula; 16; 21; 12200; true; flame; 269");
                 String foldingBikeInfo = new Scanner(System.in).nextLine();
                 try {
                     FileHandler.addBike("FOLDING BIKE " + foldingBikeInfo, path);
                 } catch (Exception e) {
-                    System.out.println("Data is not correct! Please, "
-                            + "repeat inputting follow by format " + foldingBikeInfo);
+                    System.out.println("Data is not correct! Please, repeat operation.");
+                    makeChoice(path);
                 }
                 break;
             case "3":
-                String speedElectricBikeFormatInput = "\nbrand; size of the wheels (in inch); "
+                System.out.println("Please provide info about speed electric bike in format: "
+                        + "\nbrand; size of the wheels (in inch); "
                         + "maximum speed (in km/h); " + "weight of the bike (in grams)"
                         + ";\navailability of lights at front and back (TRUE/FALSE); "
                         + "battery capacity (in mAh); color; price"
-                        + "Example: \nSmart; 40; 9600; false; 13000; brown; 1065";
-                System.out.println("Please provide info about speed electric bike in format: "
-                        + speedElectricBikeFormatInput);
+                        + "Example: \nSmart; 40; 9600; false; 13000; brown; 1065");
                 String speedElectricBikeInfo = new Scanner(System.in).nextLine();
                 try {
                     FileHandler.addBike("SPEEDELEC " + speedElectricBikeInfo, path);
                 } catch (Exception e) {
-                    System.out.println("Data is not correct! Please, "
-                            + "repeat inputting follow by format " + speedElectricBikeFormatInput);
+                    System.out.println("Data is not correct! Please, repeat operation.");
+                    makeChoice(path);
                 }
                 break;
             case "4":
-                String electricBikeFormatInput = "\nbrand; size of the wheels (in inch); "
+                System.out.println("Please provide info about electric bike in format: "
+                        + "\nbrand; size of the wheels (in inch); "
                         + "maximum speed (in km/h); " + "weight of the bike (in grams)"
                         + "; \navailability of lights at front and back (TRUE/FALSE); "
                         + "battery capacity (in mAh); color; price"
-                        + "\nExample: \nSmart; 40; 9600; false; 13000; brown; 1065";
-                System.out.println("Please provide info about electric bike in format: "
-                        + electricBikeFormatInput);
+                        + "\nExample: \nSmart; 40; 9600; false; 13000; brown; 1065");
                 String electricBikeInfo = new Scanner(System.in).nextLine();
                 try {
                     FileHandler.addBike("E-BIKE " + electricBikeInfo, path);
                 } catch (Exception e) {
-                    System.out.println("Data is not correct! "
-                            + "Please, repeat inputting follow by format "
-                            + electricBikeFormatInput);
+                    System.out.println("Data is not correct! Please, repeat operation.");
+                    makeChoice(path);
                 }
                 break;
             case "5":
